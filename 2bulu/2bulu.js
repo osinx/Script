@@ -104,7 +104,6 @@ function getZipName(dn) {
 }
 
 
-/***************** Processing *****************/
 (async () => {
 
   cache = $.getjson(cacheKey);
@@ -119,7 +118,11 @@ function getZipName(dn) {
   config.key = $.getval('Tbulu_DES_KEY') || '';
   config.iv = $.getval('Tbulu_DES_IV') || '';
 
-  $.log(JSON.stringify(config));
+  let tmpConfig = config;
+  if (tmpConfig.BDUSS != "") {
+    tmpConfig.BDUSS = "XXXX";
+  }
+  $.log(`config: ${JSON.stringify(tmpConfig)}`, "");
 
   // $.log(`🚧${$.name}, offical`, `$response: ${JSON.stringify($response)}`, "");
 
@@ -136,7 +139,13 @@ function getZipName(dn) {
       let url = await baidu_share_link(cache.net[zip]);
       if (url != "") {
         $.log(`🚧${$.name}, use proxy:`, url, "");
-        $.done({ status: 302, headers: { "Location": url } });
+        let modifiedHeaders = { "Location": url };
+        let modifiedStatus = 302;
+        if ($.isQuanX()) {
+          modifiedStatus = "HTTP/1.1 302 OK";
+        }
+        $.done({ status: modifiedStatus, headers: modifiedHeaders });
+
       }
     }
 

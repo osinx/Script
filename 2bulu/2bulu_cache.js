@@ -1,20 +1,21 @@
 const $ = new Env('2bulu script');
 const cacheKey = '2buluNet2';
 
-let config = {
+const config = {
   "root": "",
   "pwd": "",
   "shorturl": "",
   "BDUSS": "",
 };
 
-let headers = {
+const headers = {
   "User-Agent": "netdisk",
   "Content-Type": "text/plain; charset=utf-8",
   "Cookie": "%%; ndut_fmt="
 };
 
-let cache = {
+const cache = {
+  info: {},
   net: {}
 };
 
@@ -22,22 +23,23 @@ let cache = {
 // main
 (async () => {
 
-  $.log(JSON.stringify(config));
-
   config.root = $.getval('Tbulu_Baidu_Share_Root') || '';
   config.pwd = $.getval('Tbulu_Baidu_Share_Pwd') || '';
   config.shorturl = $.getval('Tbulu_Baidu_Share_ShortUrl') || '';
   config.BDUSS = $.getval('Tbulu_Baidu_Share_BDUSS') || '';
 
   if (config.shorturl == "") {
-    $.msg("两步路户外助手", "请先配置分享链接等信息");
+    $.msg(`${$.name}两步路户外助手`, "请先配置分享链接等信息");
     return;
   }
 
   headers.Cookie = headers.Cookie.replace("%%", config.BDUSS);
 
-  $.log(JSON.stringify(config));
-  // $.log(JSON.stringify(headers));
+  let tmpConfig = config;
+  if (tmpConfig.BDUSS != "") {
+    tmpConfig.BDUSS = "XXXX";
+  }
+  $.log(`config: ${JSON.stringify(tmpConfig)}`, "");
 
   // cache = $.getjson(cacheKey);
   // $.log(JSON.stringify(cache.info));
@@ -72,6 +74,8 @@ async function baidu_share_int() {
   const resp = await _baidu_share_list_api("", "1", "1");
   // $.log(resp.err, JSON.stringify(resp.resp), resp.body);
   var res = JSON.parse(resp.body);
+  // respStatus = resp.resp.status ? resp.resp.status : resp.resp.statusCode;
+  $.log(`status: ${resp.resp.status}, errno: ${res.errno}`);
   if (resp.resp.status == 200 && res.errno == 0) {
     cache["info"] = {
       "root": res.data.list[0].path.substr(0, res.data.list[0].path.lastIndexOf('/')),
@@ -160,7 +164,7 @@ async function collectZip(req) {
     }
 
     more = body.data.has_more;
-    $.log(`has_more: ${more}`);
+    $.log(`has_more: ${more}`, "");
     req.page++;
   } while (more);
 
@@ -171,7 +175,9 @@ async function collectZip(req) {
   }
 
   $.setjson(cache, cacheKey);
-  $.log(`net cache saved`);
+  $.log(`net cache saved`, "");
+
+  return count;
 }
 
 function _baidu_share_list_api(dir, page, isRoot) {

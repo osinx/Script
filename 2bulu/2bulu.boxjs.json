@@ -40,14 +40,14 @@
         {
           "id": "Tbulu_Baidu_Share_ShortUrl",
           "name": "分享短地址",
-          "val": "pg7z",
+          "val": "17-PHfDvB9DXxwDF5Dy8QUg",
           "type": "text",
           "desc": "Tbulu_Baidu_Share_ShortUrl"
         },
         {
           "id": "Tbulu_Baidu_Share_BDUSS",
           "name": "百度云盘 Cookie:BDUSS",
-          "val": "pg7z",
+          "val": null,
           "type": "text",
           "desc": "Tbulu_Baidu_Share_BDUSS"
         },
