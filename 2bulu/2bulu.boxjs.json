@@ -8,7 +8,7 @@
       {
         "id": "tbulu",
         "name": "两步路户外助手",
-        "keys": ["Tbulu_Baidu_Share_Root", "Tbulu_Baidu_Share_Pwd", "Tbulu_Baidu_Share_ShortUrl", "Tbulu_Baidu_Share_BDUSS"],
+        "keys": ["Tbulu_Baidu_Share_Root", "Tbulu_Baidu_Share_Pwd", "Tbulu_Baidu_Share_ShortUrl", "Tbulu_Baidu_Share_BDUSS", "Tbulu_DES_KEY", "Tbulu_DES_IV"],
         "author": "@osinx",
         "descs_html":[
           "<ol>修复路网功能</ol>",
@@ -43,6 +43,20 @@
             "val": "pg7z",
             "type": "text",
             "desc": "Tbulu_Baidu_Share_BDUSS"
+          },
+          {
+            "id": "Tbulu_DES_KEY",
+            "name": "DES/CBC/PKCS5Padding KEY",
+            "val": null,
+            "type": "text",
+            "desc": "Tbulu_DES_KEY"
+          },
+          {
+            "id": "Tbulu_DES_IV",
+            "name": "DES/CBC/PKCS5Padding IV",
+            "val": null,
+            "type": "text",
+            "desc": "Tbulu_DES_IV"
           }
         ],
         "icons": [
