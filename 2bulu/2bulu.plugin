@@ -1,6 +1,13 @@
 #!name=两步路户外助手
 #!desc=修复路网下载功能，重写 mt[0-0].google.cn 地图地址到免翻。
 #!icon=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_app_icon_60x60@2x.png
+#!input=Tbulu_Baidu_Share_Root
+#!input=Tbulu_Baidu_Share_Pwd
+#!input=Tbulu_Baidu_Share_ShortUrl
+#!input=Tbulu_Baidu_Share_BDUSS
+#!input=Tbulu_DES_KEY
+#!input=Tbulu_DES_IV
+
 
 [Rewrite]
 
