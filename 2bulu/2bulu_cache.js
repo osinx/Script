@@ -3,8 +3,8 @@ const cacheKey = '2buluNet2';
 
 let config = {
   "root": "",
-  "pwd": "", 
-  "shorturl": "", 
+  "pwd": "",
+  "shorturl": "",
   "BDUSS": "",
 };
 
