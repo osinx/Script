@@ -1,0 +1,17 @@
+#!name=两步路户外助手
+#!desc=修复路网下载功能，重写 mt[0-0].google.cn 地图地址到免翻。
+#!icon=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_app_icon_60x60@2x.png
+
+[Rewrite]
+
+^http:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&gl=cn&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 http://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&gl=CN&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+^http:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 http://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+^https:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&gl=cn&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&gl=CN&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+^https:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+
+[Script]
+http-response ^https:\/\/down-files\.2bulu\.com\/f\/dn1\? script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu.js, requires-body=true, tag=2bulu /f/dn1
+generic script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_cache.js, timeout=300, tag=两步路-生成路网文件列表
+
+[MITM]
+hostname = down-files.2bulu.com

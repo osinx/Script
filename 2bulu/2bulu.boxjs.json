@@ -1,0 +1,54 @@
+{
+    "id": "2bulu.app.sub",
+    "name": "两步路户外助手 应用订阅",
+    "author": "@osinx",
+    "icon": "https://avatars.githubusercontent.com/u/195557?v=4",
+    "repo": "https://github.com/osinx/Script",
+    "apps": [
+      {
+        "id": "tbulu",
+        "name": "两步路户外助手",
+        "keys": ["Tbulu_Baidu_Share_Root", "Tbulu_Baidu_Share_Pwd", "Tbulu_Baidu_Share_ShortUrl", "Tbulu_Baidu_Share_BDUSS"],
+        "author": "@osinx",
+        "descs_html":[
+          "<ol>修复路网功能</ol>",
+          "<ol>参考: <a href=\"https://pan.baidu.com/s/17-PHfDvB9DXxwDF5Dy8QUg?pwd=pg7z#list/path=%2F\">百度云分享</a></ol>",
+          "<ol>参考: <a href=\"https://alist.nn.ci/guide/drivers/baidu_share.html#qa\">alist关于百度云分享的文档</a></ol>"
+        ],
+        "settings": [
+          {
+            "id": "Tbulu_Baidu_Share_Root",
+            "name": "zip包所在分享目录",
+            "val": "/china",
+            "type": "text",
+            "desc": "Tbulu_Baidu_Share_Root"
+          },
+          {
+            "id": "Tbulu_Baidu_Share_Pwd",
+            "name": "分享密码",
+            "val": "pg7z",
+            "type": "text",
+            "desc": "Tbulu_Baidu_Share_Pwd"
+          },
+          {
+            "id": "Tbulu_Baidu_Share_ShortUrl",
+            "name": "分享短地址",
+            "val": "pg7z",
+            "type": "text",
+            "desc": "Tbulu_Baidu_Share_ShortUrl"
+          },
+          {
+            "id": "Tbulu_Baidu_Share_BDUSS",
+            "name": "百度云盘 Cookie:BDUSS",
+            "val": "pg7z",
+            "type": "text",
+            "desc": "Tbulu_Baidu_Share_BDUSS"
+          }
+        ],
+        "icons": [
+          "https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_app_icon_60x60@2x.png",
+          "https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_app_icon_60x60@2x.png"
+        ]
+      }
+    ]
+  }
