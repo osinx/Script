@@ -182,7 +182,7 @@ async function kanaRuby(query, isQX, colorLyricsResponseObj, lyricsLines) {
         .map(trans => [trans.src, trans.dst]);
     const transMap = new Map(transArr);
     // commonApi.log(transArr);
-    colorLyricsResponseObj.lyrics.lines = [{
+    colorLyricsResponseObj.lyrics.alternatives = [{
         "language": "ja",
         "lines": lyricsLines.map(line => line.words)
             // .map(word => transMap.get(word) || word || '')
