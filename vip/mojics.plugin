@@ -1,10 +1,10 @@
-#!name=MOJi辞書
-#!desc=日语学习词典,vip
-#!author=chxm1023
-#!icon=https://raw.githubusercontent.com/osinx/Script/main/icon/mojisho.png
+#!name = MOJi辞書
+#!desc = 日语学习词典,vip
+#!author = chxm1023
+#!icon = https://raw.githubusercontent.com/osinx/Script/main/icon/mojisho.png
 
 [Script]
 http-response ^https:\/\/api\.mojidict\.com\/parse\/functions\/getNPrivileges script-path=https://raw.githubusercontent.com/chxm1023/Rewrite/main/mojics.js, requires-body=true, tag=MoJisho
 
-[MITM]
+[Mitm]
 hostname = api.mojidict.com
