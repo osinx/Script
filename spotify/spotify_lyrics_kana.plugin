@@ -1,5 +1,6 @@
 #!name=Spotify歌词翻译及日语注音
 #!desc = Spotify歌词翻译及日语歌词标注五十音。
+#!openUrl = https://gitlab.com/lodepuly/vpn_tool/-/blob/master/Resource/Markdown/Spotify/README.md
 #!author = app2smile osinx
 #!homepage = https://github.com/osinx/Script
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/Spotify.png
