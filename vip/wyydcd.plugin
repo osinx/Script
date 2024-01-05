@@ -1,0 +1,9 @@
+#!name = 网易有道词典
+#!desc = 网易有道词典,解锁VIP
+#!icon = https://raw.githubusercontent.com/osinx/Script/main/icon/youdao.png
+
+[Script]
+http-response ^https:\/\/dict\.youdao\.com\/vip\/user\/status script-path=https://raw.githubusercontent.com/thebestkyle323/Quantumult-x/main/wyydcd.js, requires-body=true, tag=有道词典
+
+[Mitm]
+hostname = dict.youdao.com
