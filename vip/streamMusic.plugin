@@ -1,0 +1,11 @@
+#!name = 音流VIP
+#!desc =  永久解锁VIP
+#!author = osinx
+#!homepage = https://github.com/osinx/Script
+#!icon = https://raw.githubusercontent.com/osinx/Script/main/icon/streamMusic.png
+
+[Script]
+http-response ^https:\/\/pay\.aqzscn\.cn\/api\/v1\/payments\/ script-path = http://100.64.0.2:8000/streamMusic.js, requires-body = true, tag = 音流解锁VIP
+
+[Mitm]
+hostname = play.aqzscn.cn
