@@ -1,6 +1,6 @@
 
 /*
-#!name = 音流解锁VIP
+#!name = 音流
 #!desc =  永久解锁VIP
 #!author = osinx
 #!homepage = https://github.com/osinx/Script
