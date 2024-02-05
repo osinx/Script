@@ -124,34 +124,32 @@ function getZipName(dn) {
   }
   $.log(`config: ${JSON.stringify(tmpConfig)}`, "");
 
-  // $.log(`🚧${$.name}, offical`, `$response: ${JSON.stringify($response)}`, "");
+  // $.log(`🚧${$.name}, offical`, `$request: ${JSON.stringify($request)}, $response: ${JSON.stringify($response)}`, "");
 
-  if ($response?.statusCode == 404 || $response?.status == 404) {
-    let dn = getParam($request.url.substr($request.url.indexOf('?') + 1), 'downParams');
-    dn = decodeURIComponent(dn);
-    $.log(`dn: ${dn}`);
-    let dec = decrypt(dn);
-    $.log(`dec: ${dec}`);
-    let zip = getZipName(dec);
-    $.log(`zip: ${zip}`);
+  let dn = getParam($request.url.substr($request.url.indexOf('?') + 1), 'downParams');
+  dn = decodeURIComponent(dn);
+  $.log(`dn: ${dn}`);
+  let dec = decrypt(dn);
+  $.log(`dec: ${dec}`);
+  let zip = getZipName(dec);
+  $.log(`zip: ${zip}`);
 
-    if (zip != '' && typeof cache.net[zip] !== "undefined") {
-      let url = await baidu_share_link(cache.net[zip]);
-      if (url != "") {
-        $.log(`🚧${$.name}, use proxy:`, url, "");
-        let modifiedHeaders = { "Location": url };
-        let modifiedStatus = 302;
-        if ($.isQuanX()) {
-          modifiedStatus = "HTTP/1.1 302 OK";
-        }
-        $.done({ status: modifiedStatus, headers: modifiedHeaders });
-
+  if (zip != '' && typeof cache.net[zip] !== "undefined") {
+    let url = await baidu_share_link(cache.net[zip]);
+    if (url != "") {
+      $.log(`🚧${$.name}, use proxy:`, url, "");
+      let modifiedHeaders = {
+        "Location": url
+      };
+      let modifiedStatus = 307;
+      if ($.isQuanX()) {
+        modifiedStatus = "HTTP/1.1 307 Temporary Redirect";
       }
+      $.done({
+        status: modifiedStatus,
+        headers: modifiedHeaders
+      });
     }
-
-    // let url = proxyUrl + $request.url.substr($request.url.indexOf('?'));
-    // $.log(`🚧${$.name}, use proxy:`, url, "");
-    // $.done({ status: 302, headers: { "Location": url } });
   }
 
 })()
