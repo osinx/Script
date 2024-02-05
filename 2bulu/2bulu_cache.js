@@ -1,3 +1,4 @@
+// author: @osinx
 const $ = new Env('2bulu script');
 const cacheKey = '2buluNet2';
 

@@ -1,3 +1,4 @@
+// author: @osinx
 const $ = new Env("2ublu /f/dn1");
 const cacheKey = '2buluNet2';
 
