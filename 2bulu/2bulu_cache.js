@@ -47,16 +47,28 @@ const cache = {
   // $.log(await baidu_share_link(cache.net["54526023.zip"]));
 
   await baidu_share_int();
-  await collectZip({ dir: config.root, page: 1, isRoot: "0" });
+  const count = await collectZip({
+    dir: config.root,
+    page: 1,
+    isRoot: "0"
+  });
+  $done({
+    "title": $.name,
+    "htmlMessage": `路网数据缓存完毕, 共 ${count} 个。`
+  })
 })()
-  .catch((err) => $.logErr(err))
+.catch((err) => $.logErr(err))
   .finally(() => $.done());
 
 function fetch(url) {
   $.log(`fetch params: ${JSON.stringify(url)}`);
   return new Promise((resolve) => {
     $.post(url, (err, resp, body) => {
-      resolve({ err: err, resp: resp, body: body });
+      resolve({
+        err: err,
+        resp: resp,
+        body: body
+      });
     });
   });
 }
@@ -65,7 +77,11 @@ function get(url) {
   $.log(`get params: ${JSON.stringify(url)}`);
   return new Promise((resolve) => {
     $.get(url, (err, resp, body) => {
-      resolve({ err: err, resp: resp, body: body });
+      resolve({
+        err: err,
+        resp: resp,
+        body: body
+      });
     });
   });
 }
@@ -83,6 +99,11 @@ async function baidu_share_int() {
       "shareid": res.data.shareid,
       "uk": res.data.uk
     };
+  } else {
+    $done({
+      "title": $.name,
+      "htmlMessage": `网盘初始化失败： errno: ${res.errno}`
+    })
   }
   $.log(`cache.info: ${JSON.stringify(cache.info)}`);
 }
