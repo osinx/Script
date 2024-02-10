@@ -1,5 +1,5 @@
 #!name=两步路户外助手
-#!desc=修复路网下载功能，重写 mt[0-0].google.cn 地图地址到免翻。
+#!desc=拯救两步路，修复路网下载功能，重写 mt[0-0].google.cn 地图地址到免翻。
 #!icon=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_app_icon_60x60@2x.png
 #!author = osinx
 #!homepage = https://github.com/osinx/Script
@@ -21,6 +21,9 @@
 [Script]
 http-response ^https:\/\/down-files\.2bulu\.com\/f\/dn1\? script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu.js, requires-body=true, tag=2bulu /f/dn1
 generic script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_cache.js, timeout=300, tag=两步路-生成路网文件列表
+# 拯救两步路
+http-request ^https?:\/\/helper\.2bulu\.com script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/helper.js,requires-body = true,timeout = 10,binary-body-mode = false,enable=true,tag=拯救两步路
+
 
 [MITM]
-hostname = down-files.2bulu.com
+hostname = down-files.2bulu.com, helper.2bulu.com
