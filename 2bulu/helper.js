@@ -20,24 +20,28 @@ function calcSign(str) {
 }
 
 function dummp() {
-  $done({ response: { status: 200, headers: { 'Content-Type': 'application/json;charset=UTF-8' }, body: '{"errCode":"0"}' } })
+  const myHeaders = { "Content-Type": "application/json;charset=UTF-8" };
+  const myData = '{"errCode":"0"}';
+
+  if ($.isQuanX()) {
+    $.done({
+      status: "HTTP/1.1 200 OK",
+      headers: myHeaders,
+      body: myData
+    });
+  } else {
+    $.done({
+      response: {
+        status: 200,
+        headers: myHeaders,
+        body: myData
+      }
+    });
+  }
 }
 
-(async () => {
-
-  const block = blackList.filter(k => {
-    return $request.url.indexOf(k) > -1
-  });
-
-  if (block.length > 0) {
-    dummp();
-  }
-
-  let headers = $request.headers;
-  let url = $request.url.replaceAll('6.6.5.6', '7.6.4.3');
-  url = url.substr(24);
-
-  headers['User-Agent'] = 'region:US;lan:zh-Hans;OutdoorAssistantApplication/7.6.4 (lolaage.2bulu.zhushou; build:7.6.4.3; iOS 15.7.9) Alamofire/5.8.0';
+function fixUrl(url) {
+  url = url.replaceAll('6.6.5.6', '7.6.4.3');
 
   if (url.indexOf('/downtrack2') > -1) {
     // 使用android的输出，zip包，有别于downtrackNew返回的tblhex格式
@@ -50,7 +54,32 @@ function dummp() {
     url += "&psign=" + calcSign(param);
   }
 
-  $done({ url: url, headers: headers });
+  return url;
+}
+
+(async () => {
+
+  const block = blackList.filter(k => {
+    return $request.url.indexOf(k) > -1
+  });
+
+  if (block.length > 0) {
+    dummp();
+  }
+
+  const myHeaders = $request.headers || {};
+  myHeaders['User-Agent'] = 'region:US;lan:zh-Hans;OutdoorAssistantApplication/7.6.4 (lolaage.2bulu.zhushou; build:7.6.4.3; iOS 15.7.9) Alamofire/5.8.0';
+
+  let url = fixUrl($request.url);
+
+  if ($.isQuanX()) {
+    const host = $request.headers['Host'];
+    const pos = url.indexOf(host)
+    url = url.substr(pos + host.length);
+    $.done({ path: url, headers: myHeaders });
+  } else {
+    $done({ url: url, headers: myHeaders });
+  }
 
 })()
   .catch((e) => $.logErr(e))
