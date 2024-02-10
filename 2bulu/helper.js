@@ -72,10 +72,11 @@ function fixUrl(url) {
 
   let url = fixUrl($request.url);
 
+  const host = $request.headers['Host'];
+  const pos = url.indexOf(host)
+  url = url.substr(pos + host.length);
+
   if ($.isQuanX()) {
-    const host = $request.headers['Host'];
-    const pos = url.indexOf(host)
-    url = url.substr(pos + host.length);
     $.done({ path: url, headers: myHeaders });
   } else {
     $done({ url: url, headers: myHeaders });
