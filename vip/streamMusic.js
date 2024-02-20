@@ -10,7 +10,7 @@
 http-response ^https:\/\/pay\.aqzscn\.cn\/api\/v1\/payments\/ script-path = https://raw.githubusercontent.com/osinx/Script/main/vip/streamMusic.js, requires-body = true, tag = 音流解锁VIP
 
 [Mitm]
-hostname = play.aqzscn.cn
+hostname = pay.aqzscn.cn
 */
 
 let res = JSON.parse($response.body);
