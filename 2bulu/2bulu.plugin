@@ -12,8 +12,8 @@
 
 
 [Rewrite]
-^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&gl=cn&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&gl=CN&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
-^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&gl=cn&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://www.google.com.hk/maps/vt?lyrs=$1&gl=CN&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://www.google.com.hk/maps/vt?lyrs=$1&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
 
 [Script]
 #http-response ^https:\/\/down-files\.2bulu\.com\/f\/dn1\? script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu.js, requires-body=true, tag=2bulu /f/dn1

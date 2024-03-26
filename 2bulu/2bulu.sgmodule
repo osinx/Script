@@ -2,8 +2,8 @@
 #!desc=修复路网下载功能，重写 mt[0-0].google.cn 地图地址到免翻。
 
 [URL Rewrite]
-^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&gl=cn&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&gl=CN&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
-^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://gac-geo.googlecnapps.cn/maps/vt?lyrs=$1&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&gl=cn&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://www.google.com.hk/maps/vt?lyrs=$1&gl=CN&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
+^https?:\/\/mt[0-9].google.cn\/vt\/lyrs=([a-z\,]+)&hl=zh-CN&x=(\d+)&y=(\d+)&z=(\d+)&scale=2 https://www.google.com.hk/maps/vt?lyrs=$1&x=$2&y=$3&z=$4&src=app&scale=2&from=app 302
 
 [Script]
 2bulu.rescue = type=http-request,pattern=^https?:\/\/helper\.2bulu\.com,requires-body=1,max-size=-1,script-path=http://100.64.0.2:8000/helper.js
