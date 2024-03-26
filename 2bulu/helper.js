@@ -95,6 +95,8 @@ function fixUrl(url) {
       body.configData = JSON.stringify(data);
 
       $done({body: JSON.stringify(body)});
+    } else {
+      $done();
     }
   }
 })()
