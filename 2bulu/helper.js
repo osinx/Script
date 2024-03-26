@@ -59,29 +59,44 @@ function fixUrl(url) {
 
 (async () => {
 
-  const block = blackList.filter(k => {
-    return $request.url.indexOf(k) > -1
-  });
-
-  if (block.length > 0) {
-    dummp();
-  }
-
-  const myHeaders = $request.headers || {};
-  myHeaders['User-Agent'] = 'region:US;lan:zh-Hans;OutdoorAssistantApplication/7.6.4 (lolaage.2bulu.zhushou; build:7.6.4.3; iOS 15.7.9) Alamofire/5.8.0';
-
-  let url = fixUrl($request.url);
-
-  // const host = $request.headers['Host'];
-  // const pos = url.indexOf(host)
-  // url = url.substr(pos + host.length);
-
-  if ($.isQuanX()) {
-    $.done({ path: url, headers: myHeaders });
+  if (typeof $response === "undefined") {
+    const block = blackList.filter(k => {
+      return $request.url.indexOf(k) > -1
+    });
+  
+    if (block.length > 0) {
+      dummp();
+    }
+  
+    const myHeaders = $request.headers || {};
+    myHeaders['User-Agent'] = 'region:US;lan:zh-Hans;OutdoorAssistantApplication/7.6.4 (lolaage.2bulu.zhushou; build:7.6.4.3; iOS 15.7.9) Alamofire/5.8.0';
+  
+    let url = fixUrl($request.url);
+  
+    // const host = $request.headers['Host'];
+    // const pos = url.indexOf(host)
+    // url = url.substr(pos + host.length);
+  
+    if ($.isQuanX()) {
+      $.done({ path: url, headers: myHeaders });
+    } else {
+      $done({ url: url, headers: myHeaders });
+    }
   } else {
-    $done({ url: url, headers: myHeaders });
-  }
+    if ($request.url.indexOf('/getAppEntranceConfig') !== -1) {
+      let body = JSON.parse($response.body);
+      let data = JSON.parse(body.configData || "");
 
+      data.adsConfig = [];
+      data.adPlatform = "0";
+      data.adIntertitialShowType = 0;
+      data.showMeBaiHeAdView = "*,0";
+
+      body.configData = JSON.stringify(data);
+
+      $done({body: JSON.stringify(body)});
+    }
+  }
 })()
   .catch((e) => $.logErr(e))
   // .finally(() => $.done())
