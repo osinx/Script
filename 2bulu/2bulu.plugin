@@ -20,6 +20,8 @@
 #generic script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_cache.js, timeout=300, tag=两步路-生成路网文件列表
 # 拯救两步路
 http-request ^https?:\/\/helper\.2bulu\.com script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/helper.js,requires-body = true,timeout = 10,binary-body-mode = false,enable=true,tag=拯救两步路
+http-response ^https?:\/\/helper\.2bulu\.com script-path=https://raw.githubusercontent.com/osinx/Script/main/2bulu/helper.js,requires-body = true,timeout = 10,binary-body-mode = false,enable=true,tag=两步路去广告
 
 [MITM]
-hostname = down-files.2bulu.com, helper.2bulu.com
+#hostname = down-files.2bulu.com, helper.2bulu.com
+hostname = helper.2bulu.com
