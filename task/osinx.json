@@ -2,10 +2,13 @@
     "name": "osinx",
     "description": "https://github.com/osinx/Script/tree/master",
     "task": [
-        "1 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/10010/10010.js, tag=联通签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png, enabled=true",
         {
-          "config": "12 0 * * * https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn.js, img-url=https://raw.githubusercontent.com/Softlyx/Fileball/main/YUAN/ALiYun.png, tag=阿里网盘签到, enabled=true",
-          "addons": "https://raw.githubusercontent.com/zqzess/rule_for_quantumultX/master/js/Mine/aDriveCheckIn/aDriveCheckIn_token.qxrewrite, tag=阿里网盘token获取, update-interval=86400, opt-parser=false, enabled=true"
+            "config":"1 0 * * * https://raw.githubusercontent.com/chavyleung/scripts/master/10010/10010.js, tag=联通签到, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png, enabled=true",
+            "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/10010.cookie.conf, tag=联通签到cookie获取, update-interval=86400, opt-parser=false, enabled=true"
+        },
+        {
+          "config": "0 7,11,17 * * * https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, tag=阿里云签到, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png, enabled=true",
+          "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/aliyundrive.cookie.conf, tag=阿里网盘token获取, update-interval=86400, opt-parser=false, enabled=true"
         }
     ]
 }
