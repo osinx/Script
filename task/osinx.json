@@ -9,6 +9,9 @@
         {
           "config": "0 7,11,17 * * * https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, tag=阿里云签到, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png, enabled=true",
           "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/aliyundrive.cookie.conf, tag=阿里网盘token获取, update-interval=86400, opt-parser=false, enabled=true"
+        },
+        {
+            "config":"18 0 * * * https://raw.githubusercontent.com/Keywos/rule/main/JS/yj.js, tag=实时油价信息, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/oil.png, enabled=true"
         }
     ]
 }
