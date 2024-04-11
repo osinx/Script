@@ -78,7 +78,7 @@ $.get(
                 }
             }
 
-            const friendly_tips = `${adjust_trend} 下次${adjust_date}调整 ${adjust_trend} ${adjust_value}`
+            const friendly_tips = `${adjust_trend} ${adjust_date} ${adjust_value}`
 
             if (prices.length !== 4) {
                 console.log(`解析油价信息失败, 数量=${prices.length}, 请反馈至 @RS0485: URL=${query_addr}`)
