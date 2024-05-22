@@ -14,7 +14,7 @@
             "config":"0 8,12,18 * * * https://raw.githubusercontent.com/osinx/Script/main/task/oil.js, tag=每日油价信息, img-url=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/oil.png, enabled=true"
         },
         {
-            "config":"0 1 * * * https://raw.githubusercontent.com/osinx/Script/main/task/jietiandi.js, tag=截天帝签到, img-url=https://raw.githubusercontent.com/osinx/Script/main/icon/jietiandi_logo.png, enabled=true",
+            "config":"0 1 * * * https://raw.githubusercontent.com/osinx/Script/main/task/jietiandi.js, tag=截天帝签到, img-url=https://raw.githubusercontent.com/osinx/Script/main/icon/jietiandi_logo.png?a, enabled=true",
             "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/jietiandi.cookie.conf, tag=截天帝签到cookie获取, update-interval=86400, opt-parser=false, enabled=true"
         }
     ]
