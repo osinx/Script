@@ -16,6 +16,10 @@
         {
             "config":"0 1 * * * https://raw.githubusercontent.com/osinx/Script/main/task/jietiandi.js, tag=截天帝签到, img-url=https://raw.githubusercontent.com/osinx/Script/main/icon/jietiandi.png, enabled=true",
             "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/jietiandi.cookie.conf, tag=截天帝签到cookie获取, update-interval=86400, opt-parser=false, enabled=true"
+        },
+        {
+           "config": "40 6 * * * https://raw.githubusercontent.com/wf021325/qx/master/task/ampDache.js, tag=高德地图, img-url=https://raw.githubusercontent.com/WowYiJiu/Personal/main/icon/gaode.jpg, enabled=true",
+           "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/ampDache.cookie.conf, tag=高德地图签到cookie获取, update-interval=86400, opt-parser=false, enabled=true"
         }
     ]
 }
