@@ -22,7 +22,7 @@
            "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/ampDache.cookie.conf, tag=高德地图签到cookie获取, update-interval=86400, opt-parser=false, enabled=true"
         },
         {
-          "config": "0 7,11,17 * * * https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js, timeout=300, tag=达美乐披萨, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Domino.png, enabled=true",
+          "config": "30 10 * * * https://gist.githubusercontent.com/Sliverkiss/6b4da0d367d13790a9fd1d928c82bdf8/raw/dlm.js, timeout=300, tag=达美乐披萨, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/Domino.png, enabled=true",
           "addons": "https://raw.githubusercontent.com/osinx/Script/main/task/domino.cookie.conf, tag=达美乐披萨获取token, update-interval=86400, opt-parser=false, enabled=true"
         }
     ]
