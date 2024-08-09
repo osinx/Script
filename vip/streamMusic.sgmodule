@@ -1,0 +1,12 @@
+#!name = 音流
+#!desc =  永久解锁VIP
+#!author = osinx
+#!homepage = https://github.com/osinx/Script
+#!icon = https://raw.githubusercontent.com/osinx/Script/main/icon/streamMusic.png
+
+
+[Script]
+streamMusic = type=http-response,pattern=^https:\/\/pay\.aqzscn\.cn\/api\/v1\/payments\/,requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/osinx/Script/main/vip/streamMusic.js
+
+[MITM]
+hostname = %APPEND% pay.aqzscn.cn
