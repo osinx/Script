@@ -106,7 +106,7 @@ function fixUrl(url) {
 
       $done({body: JSON.stringify(body)});
     } else if ($request.url.indexOf('/getSplash') !== -1) {
-      $done(`{"errCode":"0","infos":[]}`);
+      $done({body:`{"errCode":"0","infos":[]}`});
     } else {
       $done({});
     }
