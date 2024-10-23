@@ -41,7 +41,12 @@ function dummp() {
 }
 
 function fixUrl(url) {
-  url = url.replaceAll('6.6.5.6', '7.6.4.3');
+  const m = url.match(/p_appVersion=([^&]*)&/, url);
+  if (!m || m[1].indexOf('6.') !== 0) {
+    return url;
+  }
+
+  url = url.replaceAll('p_appVersion=' + m[1], 'p_appVersion=7.6.4.3');
 
   if (url.indexOf('/downtrack2') > -1) {
     // 使用android的输出，zip包，有别于downtrackNew返回的tblhex格式
@@ -72,15 +77,20 @@ function fixUrl(url) {
     myHeaders['User-Agent'] = 'region:US;lan:zh-Hans;OutdoorAssistantApplication/7.6.4 (lolaage.2bulu.zhushou; build:7.6.4.3; iOS 15.7.9) Alamofire/5.8.0';
   
     let url = fixUrl($request.url);
-  
-    // const host = $request.headers['Host'];
-    // const pos = url.indexOf(host)
-    // url = url.substr(pos + host.length);
-  
     if ($.isQuanX()) {
-      $.done({ path: url, headers: myHeaders });
+      const host = $request.headers['Host'];
+      const pos = url.indexOf(host)
+      url = url.substr(pos + host.length);
+
+      $.done({
+        path: url,
+        headers: myHeaders
+      });
     } else {
-      $done({ url: url, headers: myHeaders });
+      $done({
+        url: url,
+        headers: myHeaders
+      });
     }
   } else {
     if ($request.url.indexOf('/getAppEntranceConfig') !== -1) {
@@ -98,7 +108,7 @@ function fixUrl(url) {
     } else if ($request.url.indexOf('/getSplash') !== -1) {
       $done(`{"errCode":"0","infos":[]}`);
     } else {
-      $done();
+      $done({});
     }
   }
 })()
