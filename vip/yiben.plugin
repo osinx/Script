@@ -1,0 +1,11 @@
+#!name = 一本下载
+#!desc = 下载教材配套音频（一本/江西人民出版社）
+#!author = osinx
+#!input = METUBE_ADD_API
+
+[Script]
+
+http-response ^https:\/\/mp\.dtbqr\.cn\/share\/audio\.html? script-path = https://github.com/osinx/Script/raw/refs/heads/main/vip/dtbqr_audio.js, requires-body = true, tag = 一本下载音频
+
+[MITM]
+hostname = mp.dtbqr.cn
