@@ -1,4 +1,4 @@
-const $ = new Env("一本下载音频");
+const $ = new Env("一本下载");
 
 const addAPI = $persistentStore.read("METUBE_ADD_API") || '';
 
@@ -9,14 +9,27 @@ if (!addAPI) {
 
 let res = $response.body;
 
-const mp3Match = res.match(/preload="auto" src="([^"]+)"/);
-const titleMatch = res.match(/crName-hidden">([^\<]+)</);
+const url = $request.url;
+const audioUrl = '/share/audio.htm';
+const vidoeUrl = 'share/video.htm'
 
+var mediaMatch;
+var titleMatch;
 
-console.log(mp3Match);
+if (url.indexOf(audioUrl) != -1) {
+  mediaMatch = res.match(/preload="auto" src="([^"]+)"/);
+  titleMatch = res.match(/crName-hidden">([^\<]+)</);
+} else if (url.indexOf(vidoeUrl) != -1) {
+  mediaMatch = res.match(/id="data_content">([^<]+)/);
+  titleMatch = res.match(/class="video_title [^>]+">([^<]+)<\//);
+} else {
+  $done({});
+}
+
+console.log(mediaMatch);
 console.log(titleMatch);
 
-//const cmd = encodeURIComponent(`wget ${mp3Match[1]} -O "${titleMatch[1]}.mp3"`);
+//const cmd = encodeURIComponent(`wget ${mediaMatch[1]} -O "${titleMatch[1]}.mp3"`);
 
 function post(url) {
   $.log(`post params: ${JSON.stringify(url)}`);
@@ -30,7 +43,7 @@ function post(url) {
 await post({
   url: addAPI,
   body: JSON.stringify({
-    url: mp3Match[1],
+    url: mediaMatch[1],
     custom_title: titleMatch[1] || '',
     quality: 'best'
   }), headers: {
