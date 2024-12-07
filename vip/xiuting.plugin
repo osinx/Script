@@ -1,0 +1,15 @@
+#!name = 秀亭读书
+#!desc = 网页去广告,书源封面
+#!author = osinx
+#!homepage = https://github.com/osinx/Script
+
+[Rewrite]
+
+# 去广告
+^https:\/\/cdn\.xiuting\.cc\/js\/go018.js reject-200
+# 书源封面
+^https:\/\/cdn\.xiuting\.cc\/?\/images\/icons\/\d+\.jpg header-add Referer https://www.xiuting.cc/
+
+[Mitm]
+hostname = xiuting.cc, www.xiuting.cc
+
