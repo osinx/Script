@@ -11,5 +11,5 @@
 ^https:\/\/cdn\.xiuting\.cc\/?\/images\/icons\/\d+\.jpg header-add Referer https://www.xiuting.cc/
 
 [Mitm]
-hostname = xiuting.cc, www.xiuting.cc
+hostname = cdn.xiuting.cc
 
