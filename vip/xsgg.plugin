@@ -1,0 +1,11 @@
+#!name=香色闺阁
+#!desc=重写微软小娜
+#!icon=https://github.com/osinx/Script/icon/xsgg.png
+#!author = osinx
+#!homepage = https://github.com/osinx/Script
+
+[Rewrite]
+^https:\/\/o-oo.net.cn\/speak.php\?a=([^&]+)&b=zh-chs 302 https://read-aloud.inner.osinx.com/api/synthesis?voiceName=zh-CN-XiaoxiaoNeural&text=$1
+
+[MITM]
+hostname = o-oo.net.cn
