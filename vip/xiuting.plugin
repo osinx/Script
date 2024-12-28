@@ -6,7 +6,7 @@
 [Rewrite]
 
 # 去广告
-^https:\/\/cdn\.xiuting\.cc\/js\/go018.js reject-200
+^https:\/\/cdn\.xiuting\.cc\/js\/go\d+.js reject-200
 # 书源封面
 ^https:\/\/cdn\.xiuting\.cc\/?\/images\/icons\/\d+\.jpg header-add Referer https://www.xiuting.cc/
 
