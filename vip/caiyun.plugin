@@ -1,8 +1,9 @@
 #!name = 彩云天气 Pro
-#!desc = 只是为了看个天气而已。app版本 ≤ 7.20.2
+#!desc = 只是为了看个天气而已。app版本 ≤ 7.20.2 或 自签注入 SSLKillSwitch2.dylib
 #!author = RuCu6[https://github.com/RuCu6]
 #!icon = https://github.com/osinx/Script/raw/refs/heads/main/icon/caiyun.png
-#!date = 2024-09-28 10:30
+#!date = 2025-01-14 20:00
+# https://github.com/NyaMisty/ssl-kill-switch3/releases/
 
 [Rule]
 DOMAIN, abyss.cyapi.cn, REJECT

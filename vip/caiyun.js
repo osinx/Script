@@ -1,4 +1,4 @@
-// 2024-09-28 10:30
+// 2025-01-14 20:00
 
 const url = $request.url;
 const isQuanX = typeof $task !== "undefined";
@@ -9,10 +9,11 @@ if (typeof $response === "undefined") {
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJ1c2VyX2lkIjoiNWY1YmZjNTdkMmM2ODkwMDE0ZTI2YmI4Iiwic3ZpcF9leHBpcmVkX2F0IjoxNzA1MzMxMTY2LjQxNjc3MSwidmlwX2V4cGlyZWRfYXQiOjB9.h_Cem89QarTXxVX9Z_Wt-Mak6ZHAjAJqgv3hEY6wpps";
   header["device-token"] = cyTK;
   if (compareVersions(header.version, "7.19.0") > 0) {
-    if (isQuanX) {
-      header["Authorization"] = "Bearer " + cyTK;
-    } else {
-      header["authorization"] = "Bearer " + cyTK;
+    for (var key in ["Authorization", "authorization"]) {
+      if (typeof header[key] === "undefined") {
+        continue;
+      }
+      header[key] = "Bearer " + cyTK;
     }
   }
   $done({ headers: header });
