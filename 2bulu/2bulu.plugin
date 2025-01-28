@@ -1,5 +1,5 @@
 #!name=两步路户外助手
-#!desc=拯救两步路，修复路网下载功能，重写 mt[0-0].google.cn 地图地址到免翻。
+#!desc=拯救两步路，修复路网下载功能，重写 mt[0-9].google.cn 地图地址到免翻。
 #!icon=https://raw.githubusercontent.com/osinx/Script/main/2bulu/2bulu_app_icon_60x60@2x.png
 #!author = osinx
 #!homepage = https://github.com/osinx/Script
