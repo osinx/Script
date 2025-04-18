@@ -1,0 +1,15 @@
+#!name = Relive
+#!desc = Relive 破解Plus订阅
+#!author =
+#!icon = https://raw.githubusercontent.com/osinx/Script/refs/heads/main/icon/relive_512.jpeg
+#!date = 2025-04-18 09:30
+
+[Rule]
+DOMAIN, asp.api.relive.cc, REJECT-DICT-NO-DROP
+
+[Script]
+# Relive premium
+http-response ^https:\/\/mobile\.api\.relive\.cc\/api\/1\/user\/me\? script-path = https://raw.githubusercontent.com/osinx/Script/main/vip/relive.js, requires-body = true, tag = relive_vip
+
+[MITM]
+hostname = mobile.api.relive.cc
