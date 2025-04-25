@@ -1,12 +1,12 @@
 #!name = Windy.com
-#!desc = 本地VIP
+#!desc = 解锁本地VIP
 #!author =
 #!icon = https://raw.githubusercontent.com/osinx/Script/refs/heads/main/icon/windy.png
 #!date = 2025-04-25 20:30
 
 
 [Script]
-http-response ^https?:\/\/account\.windy\.com\/api\/info script-path = http://raw.githubusercontent.com/osinx/Script/main/vip/windy.vip.js, requires-body = true, tag = windy_vip
+http-response ^https?:\/\/account\.windy\.com\/api\/info script-path = https://raw.githubusercontent.com/osinx/Script/main/vip/windy.vip.js, requires-body = true, tag = windy_vip
 
 [MITM]
 hostname = account.windy.com
