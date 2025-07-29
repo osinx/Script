@@ -1,0 +1,11 @@
+#!name=Windy.app
+#!desc=Windy vip。
+#!icon=https://raw.githubusercontent.com/osinx/Script/main/icon/windy.app_60.png
+#!author = osinx
+#!homepage = https://github.com/osinx/Script
+
+[Script]
+http-response ^https:\/\/api\.windyapp\.co\/apiV9.php\?method=syncUserData script-path=https://raw.githubusercontent.com/osinx/Script/main/vip/windy.app.js, requires-body=true, tag=Windy.app
+
+[MITM]
+hostname = api.windyapp.co
