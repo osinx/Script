@@ -4,12 +4,11 @@
 #!icon = https://www.revenuecat.com/icons/icon-512x512.png
 #!date = 2025-04-25 22:25
 
+[Rewrite]
+^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) header-del X-RevenueCat-ETag
+
 [Script]
 http-response ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts$|subscribers\/[^/]+$) script-path=https://github.com/osinx/Script/raw/refs/heads/main/vip/revenuecat.js, requires-body=true, timeout=10, tag=RevenueCat
-http-request ^https:\/\/api\.(revenuecat|rc-backup)\.com\/.+\/(receipts|subscribers) script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/master/deleteHeader.js, timeout=10, tag=RevenueCatDelHeader
-
-#http-response ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://gist.githubusercontent.com/ddgksf2013/dbb1695cd96743eef18f3fac5c6fe227/raw/revenuecat.js, requires-body=true, timeout=60, tag=revenuecat_1
-#http-request ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) script-path=https://raw.githubusercontent.com/leey668/pyer/main/revenuecat.js, timeout=60, tag=revenuecat_2
 
 [MITM]
 hostname = api.revenuecat.com, api.rc-backup.com
