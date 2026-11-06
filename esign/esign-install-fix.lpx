@@ -1,0 +1,17 @@
+#!name=ESign 安装清单修复
+#!desc=ESign 选择服务端安装；在手机本地生成安装清单，IPA 仍由 ESign 本机提供。不处理本地 HTTPS 证书，不修改 IPA 签名。
+#!author=osinx
+#!icon=https://raw.githubusercontent.com/WangGuibin/IPA-for-self/main/icons/Esign.png
+#!system=iOS,iPadOS
+#!loon_version=3.2.1(733)
+#!tag=ESign,安装
+#!type=normal
+
+[Rule]
+IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
+
+[Script]
+http-request ^https:\/\/esign\.yyyue\.xyz(?::443)?\/yyy\/api\/esignapp\/localinstall\/ script-path=https://raw.githubusercontent.com/osinx/Script/main/esign/esign-install-fix.js,tag=ESign 本地生成安装清单,timeout=5
+
+[Mitm]
+hostname = esign.yyyue.xyz
