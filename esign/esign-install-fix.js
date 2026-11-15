@@ -4,9 +4,15 @@
 
   function decodeMetadata(encoded) {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    const text = decodeURIComponent(encoded).replace(/=+$/, "");
-    if (!text || text.length > 16384 || text.length % 4 === 1 || !/^[A-Za-z0-9+/]+$/.test(text)) {
+    let text = decodeURIComponent(encoded).replace(/=+$/, "");
+    if (!text || text.length > 16384 || !/^[A-Za-z0-9+/]+$/.test(text)) {
       throw new Error("invalid_encoding");
+    }
+    // ESign can append a redundant zero digit at an exact three-byte boundary.
+    // It contributes no bytes; any nonzero extra digit remains invalid.
+    if (text.length % 4 === 1) {
+      if (text.length === 1 || !text.endsWith("A")) throw new Error("invalid_encoding");
+      text = text.slice(0, -1);
     }
     let buffer = 0, bits = 0;
     const bytes = [];
@@ -62,11 +68,13 @@
   try {
     const response = manifest(String($request.url || ""), $request.method || "GET");
     if (response) {
-      console.log("[ESign Install Fix] 安装清单已在手机本地生成");
+      console.log("[ESign Install Fix v2] 安装清单已在手机本地生成");
       $done({response});
     } else $done({});
-  } catch (_) {
-    console.log("[ESign Install Fix] 不支持的清单参数，保留原请求");
+  } catch (error) {
+    const reason = error && /^invalid_[a-z_]+$/.test(String(error.message || ""))
+      ? error.message : "invalid_parameters";
+    console.log("[ESign Install Fix v2] 不支持的清单参数，保留原请求，原因=" + reason);
     $done({});
   }
 })();

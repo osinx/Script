@@ -11,7 +11,7 @@
 IP-CIDR,127.0.0.1/32,DIRECT,no-resolve
 
 [Script]
-http-request ^https:\/\/esign\.yyyue\.xyz(?::443)?\/yyy\/api\/esignapp\/localinstall\/ script-path=https://raw.githubusercontent.com/osinx/Script/main/esign/esign-install-fix.js,tag=ESign 本地生成安装清单,timeout=5
+http-request ^https:\/\/esign\.yyyue\.xyz(?::443)?\/yyy\/api\/esignapp\/localinstall\/ script-path=https://raw.githubusercontent.com/osinx/Script/main/esign/esign-install-fix.js?v=2,tag=ESign 本地生成安装清单,timeout=5
 
 [Mitm]
 hostname = esign.yyyue.xyz
